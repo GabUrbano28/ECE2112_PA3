@@ -1,6 +1,6 @@
 # ECE2112_PA3
 ### Made by Antonio Gabriel L. Urbano | 2ECE-A
-### EXPERIMENT 3:PYTHON DATA ANALYSIS (PANDAS)
+### EXPERIMENT 3: PYTHON DATA ANALYSIS (PANDAS)
 The content of this repository contains the Programming Assignment 3 for our course "Advance Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three problems pertaining to Module 3 - Pandas. 
 
 The objectives of this experiment are to be able to load cars.csv dataset into a Pandas DataFrame, select rows and columns using positional and label-based indexing, filter records using conditions on a DataFrame column, and to extract a well-defined subset of data without changing the source data. 
@@ -18,6 +18,9 @@ The objectives of this experiment are to be able to load cars.csv dataset into a
 Display dataset properties like ```(shape, columns)```, and extract rows 6 through 10 positionally using .iloc, and specific columns ```(Model, mpg, cyl, hp, gear)```.
 
 ```python
+import pandas as pd
+cars = pd.read_csv('cars.csv')
+
 print("Shape of cars DataFrame:", cars.shape)
 print("List of Column Names:", list(cars.columns))
 
@@ -25,11 +28,11 @@ cars_6_to_10 = cars.iloc[5:10]
 
 cars_6_to_10.loc[:, ['Model', 'mpg', 'cyl', 'hp', 'gear']]
 ```
-*Output:*
+#### Output
 
 ```text
-Shape of DataFrame: (32, 12)
-Column names: ['Model', 'mpg', 'cyl', 'disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
+Shape of cars DataFrame: (32, 12)
+List of Column names: ['Model', 'mpg', 'cyl', 'disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
 ```
 
 | Index | Model | mpg | cyl | hp | gear |
@@ -53,15 +56,13 @@ display(toyota)
 pontiac = cars.loc[cars['Model'] == 'Pontiac Firebird', ['Model', 'mpg', 'hp', 'wt']]
 display(pontiac)
 ```
-*Output:*
+#### Output
 
-*Toyota Corolla:*
 
 | Index | Model | mpg | cyl | disp | hp | drat | wt | qsec | vs | am | gear | carb |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | *19* | Toyota Corolla | 33.9 | 4 | 71.1 | 65 | 4.22 | 1.835 | 19.91 | 1 | 1 | 4 | 1 |
 
-*Pontiac Firebird:*
 
 | Index | Model | mpg | hp | wt |
 | :--- | :--- | :--- | :--- | :--- |
@@ -82,7 +83,7 @@ selected_cars = cars.loc[cars['Model'].isin(target_models), target_columns ]
 display(selected_cars)
 print("Shape of selected_cars:", selected_cars.shape)
 ```
-*Output:*
+#### Output
 
 | Index | Model | mpg | cyl | hp | gear |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -91,7 +92,7 @@ print("Shape of selected_cars:", selected_cars.shape)
 | *29* | Ferrari Dino | 19.7 | 6 | 175 | 5 |
 
 ```text
-DataFrame Shape: (3, 5)
+Shape of selected_cars : (3, 5)
 ```
 ---
 
