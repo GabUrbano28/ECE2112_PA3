@@ -27,9 +27,10 @@ cars_6_to_10.loc[:, ['Model', 'mpg', 'cyl', 'hp', 'gear']]
 ```
 *Output:*
 
-text
+```text
 Shape of DataFrame: (32, 12)
 Column names: ['Model', 'mpg', 'cyl', 'disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
+```
 
 | Index | Model | mpg | cyl | hp | gear |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -89,8 +90,8 @@ print("Shape of selected_cars:", selected_cars.shape)
 | *27* | Lotus Europa | 30.4 | 4 | 113 | 5 |
 | *29* | Ferrari Dino | 19.7 | 6 | 175 | 5 |
 
-text
+```text
 DataFrame Shape: (3, 5)
-
+```
 ---
 
