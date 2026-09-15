@@ -6,16 +6,16 @@ The content of this repository contains the Programming Assignment 3 for our cou
 The objectives of this experiment are to be able to load cars.csv dataset into a Pandas DataFrame, select rows and columns using positional and label-based indexing, filter records using conditions on a DataFrame column, and to extract a well-defined subset of data without changing the source data. 
 
 ### Methods Used
-- Positional Row Slicing (cars.iloc[5:10]): Accepts an integer index range (5:10) and outputs a DataFrame. It retrieves records by zero-based position from index 5 up to 9, corresponding to the 6th through 10th rows in the dataset.
+- Positional Row Slicing ```cars.iloc[5:10]```: Accepts an integer index range ```text5:10``` and outputs a DataFrame. It retrieves records by zero-based position from index 5 up to 9, corresponding to the 6th through 10th rows in the dataset.
 
-- Single-Condition Label Filtering (cars.loc[cars['Model'] == ...]): Accepts a conditional expression and optional target column list to output a DataFrame. It dynamically filters entries matching a specific model name while allowing concurrent column selection.
+- Single-Condition Label Filtering ```(cars.loc[cars['Model'] == ...])```: Accepts a conditional expression and optional target column list to output a DataFrame. It dynamically filters entries matching a specific model name while allowing concurrent column selection.
 
-- Vectorized Multi-Value Selection (cars.loc[cars['Model'].isin(...), target_columns]): Accepts a list of model names alongside a list of target columns to output a DataFrame. It performs multi-item matching and column subsetting simultaneously within a single .loc call.
+- Vectorized Multi-Value Selection ```cars.loc[cars['Model'].isin(...), target_columns]```): Accepts a list of model names alongside a list of target columns to output a DataFrame. It performs multi-item matching and column subsetting simultaneously within a single ```.loc``` call.
 
 ### 1. Positional and Label-Based Slicing 
 
 #### Requirement:
-Display dataset properties like (shape, columns), and extract rows 6 through 10 positionally using .iloc, and specific columns (Model, mpg, cyl, hp, gear).
+Display dataset properties like ```(shape, columns)```, and extract rows 6 through 10 positionally using .iloc, and specific columns ```(Model, mpg, cyl, hp, gear)```.
 
 ```python
 print("Shape of cars DataFrame:", cars.shape)
@@ -44,7 +44,7 @@ Column names: ['Model', 'mpg', 'cyl', 'disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 
 
 ### 2. Model Lookup
 ### Requirement: 
-Use Pandas .loc with Boolean indexing to look up vehicle specifications without hardcoding integer row positions. Extract all columns for the Toyota Corolla, and extract only the (Model, mpg, hp, wt) columns for the Pontiac Firebird.
+Use Pandas ```.loc``` with Boolean indexing to look up vehicle specifications without hardcoding integer row positions. Extract all columns for the Toyota Corolla, and extract only the ```(Model, mpg, hp, wt)``` columns for the Pontiac Firebird.
 
 ```pyhton
 toyota = cars.loc[cars['Model'] == 'Toyota Corolla']
@@ -71,7 +71,7 @@ display(pontiac)
 
 ### 3. Multi-Model Subsetting
 #### Requirement:
-Using .isin() or Boolean filtering, extract the rows where Model is ('Datsun 710', 'Lotus Europa', or 'Ferrari Dino'). Subset the result to (Model, mpg, cyl, hp, gear) and programmatically check that data frame shape is equal to (3, 5).
+Using ```.isin()``` or Boolean filtering, extract the rows where Model is ```('Datsun 710', 'Lotus Europa', or 'Ferrari Dino')```. Subset the result to ```(Model, mpg, cyl, hp, gear)``` and programmatically check that data frame shape is equal to ```(3, 5)```.
 
 ```pyhton
 target_models = ['Datsun 710', 'Lotus Europa', 'Ferrari Dino']
