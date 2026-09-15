@@ -3,7 +3,7 @@
 ### EXPERIMENT 3:PYTHON DATA ANALYSIS (PANDAS)
 The content of this repository contains the Programming Assignment 3 for our course "Advance Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three problems pertaining to Module 3 - Pandas. 
 
-The objectives of this experiment are to be able to load a CSV dataset into a Pandas DataFrame, select rows and columns using positional and label-based indexing, filter records using conditions on a DataFrame column, and to extract a well-defined subset of data without changing the source data. 
+The objectives of this experiment are to be able to load cars.csv dataset into a Pandas DataFrame, select rows and columns using positional and label-based indexing, filter records using conditions on a DataFrame column, and to extract a well-defined subset of data without changing the source data. 
 
 ### 1. Positional and Label-Based Slicing 
 After loading cars, complete the following operations.
