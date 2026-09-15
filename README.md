@@ -6,31 +6,41 @@ The content of this repository contains the Programming Assignment 3 for our cou
 The objectives of this experiment are to be able to load cars.csv dataset into a Pandas DataFrame, select rows and columns using positional and label-based indexing, filter records using conditions on a DataFrame column, and to extract a well-defined subset of data without changing the source data. 
 
 ### 1. Positional and Label-Based Slicing 
-After loading cars, complete the following operations.
-a. Display the shape and complete list of column names of cars.
 
-b. Use positional slicing to create cars_6_to_10 containing rows 6 through 10 of the dataset, where the first data row is row 1. 
-
-c. From cars_6_to_10, display only the columns Model, mpg, cyl, hp, and gear in that order. 
 #### Requirement:
-The row selection in part (b) must use iloc; the column selection in part (c) must use column labels. 
+Display dataset properties like (shape, columns), and extract rows 6 through 10 positionally using .iloc, and specific columns (Model, mpg, cyl, hp, gear).
+
+```python
+print("Shape of cars DataFrame:", cars.shape)
+print("List of Column Names:", list(cars.columns))
+
+cars_6_to_10 = cars.iloc[5:10]
+
+cars_6_to_10.loc[:, ['Model', 'mpg', 'cyl', 'hp', 'gear']]
+```
 
 ### 2. Model Lookup
-Use Boolean indexing on the Model column to answer both requests.
-
-a. Display the complete row for Toyota Corolla.
-
-b. For Pontiac Firebird, display only Model, mpg, hp, and wt.
 ### Requirement: 
-Store the two results in toyota and pontiac, respectively. Do not use a hard-coded row number to
-locate either model.
+Use Pandas .loc with Boolean indexing to look up vehicle specifications without hardcoding integer row positions. Extract all columns for the Toyota Corolla, and extract only the (Model, mpg, hp, wt) columns for the Pontiac Firebird.
+
+```pyhton
+toyota = cars.loc[cars['Model'] == 'Toyota Corolla']
+display(toyota)
+
+pontiac = cars.loc[cars['Model'] == 'Pontiac Firebird', ['Model', 'mpg', 'hp', 'wt']]
+display(pontiac)
+```
 
 ### 3. Multi-Model Subsetting
-Create a DataFrame named selected cars containing only the records for three models: Datsun 710,
-Lotus Europa, and Ferrari Dino.
+#### Requirement:
+Using .isin() or Boolean filtering, extract the rows where Model is ('Datsun 710', 'Lotus Europa', or 'Ferrari Dino'). Subset the result to (Model, mpg, cyl, hp, gear) and programmatically check that data frame shape is equal to (3, 5).
 
-For these records, retain only Model, mpg, cyl, hp, and gear. Select the rows by their model values
-rather than by row numbers. Display selected cars and its shape.
+```pyhton
+target_models = ['Datsun 710', 'Lotus Europa', 'Ferrari Dino']
+target_columns = ['Model', 'mpg', 'cyl', 'hp', 'gear']
 
-#### Required check:
-The final DataFrame must contain exactly three rows and five columns
+selected_cars = cars.loc[cars['Model'].isin(target_models), target_columns ]
+
+display(selected_cars)
+print("Shape of selected_cars:", selected_cars.shape)
+```
